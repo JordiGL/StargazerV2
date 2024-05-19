@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.golojodev.apitemplate"
+    namespace = "com.golojodev.stargazer"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.golojodev.apitemplate"
+        applicationId = "com.golojodev.stargazer"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

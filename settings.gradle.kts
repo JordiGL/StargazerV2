@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Apitemplate"
+rootProject.name = "stargazer"
 include(":app")
 include(":library")
