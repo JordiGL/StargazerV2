@@ -40,7 +40,6 @@ class ModelRepositoryImpl(
 
     override suspend fun fetchRemoteModels(): Flow<List<Model>> {
         return withContext(dispatcher) {
-            // val response = serviceAPI.fetchData("cute")
             val response: Response<List<Model>> = Response.success(
                 listOf(
                     Model(1, "Model 1", listOf("tag1", "tag2")),

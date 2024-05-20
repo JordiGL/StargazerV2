@@ -1,8 +1,8 @@
 package com.golojodev.stargazer.domain.repositories
 
+import com.golojodev.library.style.ThemeState
 import com.golojodev.stargazer.data.ThemeStateDao
 import com.golojodev.stargazer.data.ThemeStateEntity
-import com.golojodev.library.style.ThemeState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

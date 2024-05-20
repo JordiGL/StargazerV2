@@ -26,6 +26,7 @@ import androidx.work.ExistingWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
+import com.golojodev.library.style.ThemeStateManager
 import com.golojodev.stargazer.data.workers.ModelsSyncWorker
 import com.golojodev.stargazer.presentation.navigation.AppNavigationContent
 import com.golojodev.stargazer.presentation.navigation.ContentType
@@ -38,7 +39,6 @@ import com.golojodev.stargazer.presentation.screens.content.CustomNavigationDraw
 import com.golojodev.stargazer.presentation.viewmodels.MainViewModel
 import com.golojodev.stargazer.presentation.viewmodels.ThemeViewModel
 import com.golojodev.stargazer.ui.theme.ApitemplateTheme
-import com.golojodev.library.style.ThemeStateManager
 import com.golojodev.timecontrol.TimeControlHandler
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map

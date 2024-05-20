@@ -4,16 +4,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.golojodev.stargazer.domain.models.Model
+import com.golojodev.stargazer.domain.models.Launch
 import com.golojodev.stargazer.presentation.screens.content.DetailsScreenContent
 
 @Composable
-fun DetailsScreen(model: Model) {
+fun DetailsScreen(launch: Launch) {
     Scaffold(
         content = { paddingValues ->
             DetailsScreenContent(
                 modifier = Modifier.padding(paddingValues),
-                model = model
+                launch = launch
             )
         }
     )

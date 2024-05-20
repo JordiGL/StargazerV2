@@ -12,11 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.golojodev.stargazer.domain.models.Model
+import com.golojodev.stargazer.domain.models.Launch
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun DetailsScreenContent(modifier: Modifier, model: Model) {
+fun DetailsScreenContent(modifier: Modifier, launch: Launch) {
     Column(
         modifier = modifier
             .fillMaxSize()

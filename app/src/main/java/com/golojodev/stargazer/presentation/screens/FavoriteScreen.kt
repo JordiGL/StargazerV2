@@ -12,38 +12,38 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.golojodev.stargazer.domain.models.Model
+import com.golojodev.stargazer.domain.models.Launch
 import com.golojodev.stargazer.presentation.screens.content.ModelListItem
 import com.golojodev.stargazer.presentation.viewmodels.MainViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun FavoriteScreen(
-    onClicked: (Model) -> Unit
+    onClicked: (Launch) -> Unit
 ) {
     val mainViewModel: MainViewModel = koinViewModel()
     LaunchedEffect(Unit) {
         mainViewModel.getFavorites()
     }
-    val models by mainViewModel.favorites.collectAsStateWithLifecycle()
+    val launches by mainViewModel.favorites.collectAsStateWithLifecycle()
 
-    if (models.isEmpty()) {
+    if (launches.isEmpty()) {
         Column(
             modifier = Modifier
                 .fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "No favorite pets")
+            Text(text = "No favorite launches")
         }
     } else {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
         ) {
-            items(models) { model ->
+            items(launches) { launch ->
                 ModelListItem(
-                    model = model,
+                    launch = launch,
                     onClicked = onClicked,
                     onFavoriteClicked = {
                         mainViewModel.update(it)

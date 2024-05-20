@@ -1,7 +1,7 @@
 package com.golojodev.stargazer.domain.usecases
 
-import com.golojodev.stargazer.domain.repositories.ThemeRepository
 import com.golojodev.library.style.ThemeState
+import com.golojodev.stargazer.domain.repositories.ThemeRepository
 
 /**
  * UseCase per recuperar el [ThemeState]

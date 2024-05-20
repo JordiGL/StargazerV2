@@ -1,5 +1,6 @@
 package com.golojodev.stargazer.domain.usecases
 
+import com.golojodev.stargazer.domain.repositories.LaunchRepository
 import com.golojodev.stargazer.domain.repositories.ModelRepository
 
 /**
@@ -8,7 +9,7 @@ import com.golojodev.stargazer.domain.repositories.ModelRepository
  * @param modelRepository [ModelRepository]
  */
 class GetModelsUseCase(
-    private val modelRepository: ModelRepository
+    private val launchRepository: LaunchRepository
 ) {
-    suspend operator fun invoke() = modelRepository.getModels()
+    suspend operator fun invoke() = launchRepository.getlaunches()
 }

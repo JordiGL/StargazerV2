@@ -20,7 +20,7 @@ class ModelListItemTest {
         with(composeTestRule) {
             setContent {
                 ModelListItem(
-                    model = Model(
+                    launch = Model(
                         id = 1,
                         name = "John Doe",
                         tags = listOf("cute", "fluffy"),

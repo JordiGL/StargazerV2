@@ -2,10 +2,10 @@ package com.golojodev.stargazer.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.golojodev.library.style.ThemeState
 import com.golojodev.stargazer.domain.states.NetworkResult
 import com.golojodev.stargazer.domain.states.asResult
 import com.golojodev.stargazer.domain.usecases.UseCaseProvider
-import com.golojodev.library.style.ThemeState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update

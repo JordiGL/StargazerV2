@@ -2,7 +2,7 @@ package com.golojodev.stargazer.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.golojodev.stargazer.domain.models.Model
+import com.golojodev.stargazer.domain.models.Launch
 import com.golojodev.stargazer.domain.states.NetworkResult
 import com.golojodev.stargazer.domain.states.asResult
 import com.golojodev.stargazer.domain.usecases.UseCaseProvider
@@ -20,8 +20,8 @@ class MainViewModel(
 ) : ViewModel() {
     val uiState = MutableStateFlow(UIState())
 
-    private val _favorites = MutableStateFlow<List<Model>>(emptyList())
-    val favorites: StateFlow<List<Model>> get() = _favorites
+    private val _favorites = MutableStateFlow<List<Launch>>(emptyList())
+    val favorites: StateFlow<List<Launch>> get() = _favorites
 
     init {
         getModels()
@@ -30,11 +30,11 @@ class MainViewModel(
     fun getModels() {
         uiState.value = UIState(isLoading = true)
         viewModelScope.launch {
-            useCaseProvider.onGetModels().asResult().collect { result ->
+            useCaseProvider.onGetLaunches().asResult().collect { result ->
                 when (result) {
                     is NetworkResult.Success -> {
                         uiState.update {
-                            it.copy(isLoading = false, models = result.data)
+                            it.copy(isLoading = false, launches = result.data)
                         }
                     }
 
@@ -51,11 +51,11 @@ class MainViewModel(
     fun fetchRemoteModels() {
         uiState.value = UIState(isLoading = true)
         viewModelScope.launch {
-            useCaseProvider.onFetchModels().asResult().collect { result ->
+            useCaseProvider.onFetchLaunches().asResult().collect { result ->
                 when (result) {
                     is NetworkResult.Success -> {
                         uiState.update {
-                            it.copy(isLoading = false, models = result.data)
+                            it.copy(isLoading = false, launches = result.data)
                         }
                     }
 
@@ -69,9 +69,9 @@ class MainViewModel(
         }
     }
 
-    fun update(model: Model) {
+    fun update(launch: Launch) {
         viewModelScope.launch {
-           useCaseProvider.onUpdateModel(model)
+           useCaseProvider.onUpdateLaunch(launch)
         }
     }
     fun getFavorites() {

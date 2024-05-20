@@ -1,6 +1,7 @@
 package com.golojodev.stargazer.domain.usecases
 
-import com.golojodev.stargazer.domain.models.Model
+import com.golojodev.stargazer.domain.models.Launch
+import com.golojodev.stargazer.domain.repositories.LaunchRepository
 import com.golojodev.stargazer.domain.repositories.ModelRepository
 
 /**
@@ -9,9 +10,9 @@ import com.golojodev.stargazer.domain.repositories.ModelRepository
  * @param modelRepository [ModelRepository]
  */
 class UpdateModelUseCase(
-    private val modelRepository: ModelRepository
+    private val launchRepository: LaunchRepository
 ) {
-    suspend operator fun invoke(model: Model) {
-        modelRepository.updateModel(model)
+    suspend operator fun invoke(launch: Launch) {
+        launchRepository.updateLaunch(launch)
     }
 }

@@ -11,14 +11,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.golojodev.stargazer.domain.models.Model
+import com.golojodev.stargazer.domain.models.Launch
 
 @Composable
 fun ModelListAndDetails(
-    models: List<Model>,
-    onFavoriteClicked: (Model) -> Unit
+    launches: List<Launch>,
+    onFavoriteClicked: (Launch) -> Unit
 ) {
-    var currentModel by remember { mutableStateOf(models.first()) }
+    var current by remember { mutableStateOf(launches.first()) }
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly
@@ -27,10 +27,10 @@ fun ModelListAndDetails(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f),
-            models = models,
+            launches = launches,
             onFavoriteClicked = onFavoriteClicked,
             onClicked = {
-                currentModel = it
+                current = it
             }
         )
         DetailsScreenContent(
@@ -38,7 +38,7 @@ fun ModelListAndDetails(
                 .fillMaxWidth()
                 .padding(16.dp)
                 .weight(1f),
-            model = currentModel
+            launch = current
         )
     }
 }

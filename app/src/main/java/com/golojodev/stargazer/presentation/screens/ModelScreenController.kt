@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.golojodev.stargazer.domain.models.Model
+import com.golojodev.stargazer.domain.models.Launch
 import com.golojodev.stargazer.presentation.navigation.ContentType
 import com.golojodev.stargazer.presentation.screens.content.ModelList
 import com.golojodev.stargazer.presentation.screens.content.ModelListAndDetails
@@ -22,8 +22,8 @@ fun ModelScreenController(
     modifier: Modifier,
     contentType: ContentType,
     uiState: UIState,
-    onFavoriteClicked: (Model) -> Unit,
-    onModelClicked: (Model) -> Unit
+    onFavoriteClicked: (Launch) -> Unit,
+    onModelClicked: (Launch) -> Unit
 ) {
     Column(
         modifier = modifier
@@ -37,18 +37,18 @@ fun ModelScreenController(
             CircularProgressIndicator()
         }
         AnimatedVisibility(
-            visible = uiState.models.isNotEmpty()
+            visible = uiState.launches.isNotEmpty()
         ) {
             if (contentType == ContentType.List) {
                 ModelList(
                     modifier = Modifier.fillMaxWidth(),
-                    models = uiState.models,
+                    launches = uiState.launches,
                     onFavoriteClicked = onFavoriteClicked,
                     onClicked = onModelClicked
                 )
             } else {
                 ModelListAndDetails(
-                    models = uiState.models,
+                    launches = uiState.launches,
                     onFavoriteClicked = onFavoriteClicked
                 )
             }

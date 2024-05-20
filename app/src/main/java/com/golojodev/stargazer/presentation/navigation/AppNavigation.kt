@@ -6,12 +6,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.golojodev.library.style.ThemeStateManager
 import com.golojodev.stargazer.presentation.screens.DetailsScreen
 import com.golojodev.stargazer.presentation.screens.FavoriteScreen
 import com.golojodev.stargazer.presentation.screens.HomeScreen
 import com.golojodev.stargazer.presentation.screens.SettingsScreen
 import com.golojodev.stargazer.presentation.viewmodels.ThemeViewModel
-import com.golojodev.library.style.ThemeStateManager
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.koin.androidx.compose.koinViewModel
@@ -38,7 +38,7 @@ fun AppNavigation(
         }
         composable<Screens.Details> {
             DetailsScreen(
-                model = Json.decodeFromString(it.toRoute<Screens.Details>().model)
+                launch = Json.decodeFromString(it.toRoute<Screens.Details>().launch)
             )
         }
         composable<Screens.Favorite> {

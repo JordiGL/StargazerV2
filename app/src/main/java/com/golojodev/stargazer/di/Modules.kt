@@ -6,6 +6,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.golojodev.stargazer.data.ModelDatabase
 import com.golojodev.stargazer.data.service.ServiceAPI
 import com.golojodev.stargazer.data.workers.ModelsSyncWorker
+import com.golojodev.stargazer.domain.repositories.LaunchRepository
+import com.golojodev.stargazer.domain.repositories.LaunchRepositoryImpl
 import com.golojodev.stargazer.domain.repositories.ModelRepository
 import com.golojodev.stargazer.domain.repositories.ModelRepositoryImpl
 import com.golojodev.stargazer.domain.repositories.ThemeRepository
@@ -37,6 +39,7 @@ val appModules = module {
     single { ThemeViewModel(get()) }
     single<ModelRepository> { ModelRepositoryImpl(get(), get(), get()) }
     single<ThemeRepository> { ThemeRepositoryImpl(get(), get()) }
+    single<LaunchRepository> { LaunchRepositoryImpl(get(), get()) }
     single {
         Retrofit.Builder().addConverterFactory(
             Json.asConverterFactory(contentType = "application/json".toMediaType())
@@ -63,6 +66,7 @@ val appModules = module {
     }
     single { get<ModelDatabase>().modelDao() }
     single { get<ModelDatabase>().themeStateDao() }
+    single { get<ModelDatabase>().stargazerDao() }
     single { FetchModelsUseCase(get()) }
     single { GetModelsUseCase(get()) }
     single { GetThemeUseCase(get()) }

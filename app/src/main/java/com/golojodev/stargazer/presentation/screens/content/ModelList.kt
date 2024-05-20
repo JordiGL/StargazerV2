@@ -5,21 +5,21 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.golojodev.stargazer.domain.models.Model
+import com.golojodev.stargazer.domain.models.Launch
 
 @Composable
 fun ModelList(
     modifier: Modifier,
-    models: List<Model>,
-    onFavoriteClicked: (Model) -> Unit,
-    onClicked: (Model) -> Unit
+    launches: List<Launch>,
+    onFavoriteClicked: (Launch) -> Unit,
+    onClicked: (Launch) -> Unit
 ) {
     LazyColumn(
         modifier = modifier.fillMaxSize()
     ) {
-        items(models) { model ->
+        items(launches) { launch ->
             ModelListItem(
-                model = model,
+                launch = launch,
                 onFavoriteClicked = onFavoriteClicked,
                 onClicked = onClicked
             )

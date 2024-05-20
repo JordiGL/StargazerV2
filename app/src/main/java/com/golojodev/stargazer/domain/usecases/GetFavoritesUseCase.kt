@@ -1,9 +1,9 @@
 package com.golojodev.stargazer.domain.usecases
 
-import com.golojodev.stargazer.domain.repositories.ModelRepository
+import com.golojodev.stargazer.domain.repositories.LaunchRepository
 
 class GetFavoritesUseCase(
-    private val modelRepository: ModelRepository
+    private val launchRepository: LaunchRepository
 ) {
-    suspend operator fun invoke() = modelRepository.getFavorites()
+    suspend operator fun invoke() = launchRepository.getFavorites()
 }

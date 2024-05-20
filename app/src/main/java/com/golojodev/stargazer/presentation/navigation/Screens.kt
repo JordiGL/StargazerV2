@@ -7,7 +7,7 @@ sealed class Screens {
     object Home
 
     @Serializable
-    data class Details(val model: String)
+    data class Details(val launch: String)
 
     @Serializable
     object Favorite
