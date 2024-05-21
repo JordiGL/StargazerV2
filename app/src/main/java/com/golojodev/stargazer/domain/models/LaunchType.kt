@@ -3,6 +3,7 @@ package com.golojodev.stargazer.domain.models
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Orbit(
-    val name: String
-)
+sealed class LaunchType {
+    object Previous : LaunchType()
+    object Upcoming : LaunchType()
+}

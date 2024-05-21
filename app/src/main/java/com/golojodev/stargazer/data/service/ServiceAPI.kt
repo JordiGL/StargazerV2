@@ -1,5 +1,6 @@
 package com.golojodev.stargazer.data.service
 
+import com.golojodev.stargazer.domain.models.LaunchesResponse
 import com.golojodev.stargazer.domain.models.Model
 import retrofit2.Response
 import retrofit2.http.GET
@@ -15,4 +16,9 @@ interface ServiceAPI {
     suspend fun fetchData(
         @Query("query") tag: String
     ): Response<List<Model>>
+
+    @GET("upcoming")
+    suspend fun fetchUpcomingLaunches(): Response<LaunchesResponse>
+    @GET("previous")
+    suspend fun fetchPreviousLaunches(): Response<LaunchesResponse>
 }

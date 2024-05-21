@@ -1,6 +1,5 @@
 package com.golojodev.stargazer.data
 
-import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
@@ -12,10 +11,10 @@ import com.golojodev.stargazer.data.entities.LaunchEntity
         ThemeStateEntity::class,
         LaunchEntity::class
     ],
-    version = 2,
-    autoMigrations = [
-        AutoMigration(from = 1, to = 2)
-    ]
+    version = 1,
+//    autoMigrations = [
+//        AutoMigration(from = 2, to = 3)
+//    ]
 )
 @TypeConverters(ModelsTypeConverters::class)
 abstract class ModelDatabase : RoomDatabase() {

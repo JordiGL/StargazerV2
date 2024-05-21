@@ -22,6 +22,8 @@
 
 -keep class com.golojodev.stargazer.domain.models.Model.** { *; }
 -keep class com.golojodev.stargazer.data.ModelEntity.** { *; }
+-keep class com.golojodev.stargazer.domain.models.Launch.** { *; }
+-keep class com.golojodev.stargazer.data.LaunchEntity.** { *; }
 # With R8 full mode generic signatures are stripped for classes thatare not kept.
 # Suspend functions are wrapped in continuations where the typergument is used.
 -keep,allowobfuscation,allowshrinking class kotlin.coroutines.Continuation

@@ -32,17 +32,21 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 
 // TODO: Canvia la URL
-const val BASE_URL = "https://api.example.com"
+const val BASE_URL = "https://ll.thespacedevs.com/2.2.0/launch/"
+
+private val json = Json {
+    ignoreUnknownKeys = true
+}
 
 val appModules = module {
     single { MainViewModel(get()) }
     single { ThemeViewModel(get()) }
     single<ModelRepository> { ModelRepositoryImpl(get(), get(), get()) }
     single<ThemeRepository> { ThemeRepositoryImpl(get(), get()) }
-    single<LaunchRepository> { LaunchRepositoryImpl(get(), get()) }
+    single<LaunchRepository> { LaunchRepositoryImpl(get(), get(), get()) }
     single {
         Retrofit.Builder().addConverterFactory(
-            Json.asConverterFactory(contentType = "application/json".toMediaType())
+            json.asConverterFactory(contentType = "application/json".toMediaType())
         )
             .baseUrl(BASE_URL)
             .build()

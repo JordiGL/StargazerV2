@@ -1,5 +1,6 @@
 package com.golojodev.stargazer.presentation.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.golojodev.stargazer.domain.models.Launch
@@ -60,6 +61,7 @@ class MainViewModel(
                     }
 
                     is NetworkResult.Error -> {
+                        Log.i("LAPI", result.error)
                         uiState.update {
                             it.copy(isLoading = false, error = result.error)
                         }
