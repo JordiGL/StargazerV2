@@ -13,6 +13,9 @@ interface StargazerDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(launchEntity: LaunchEntity)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAll(launches: List<LaunchEntity>)
+
     @Query("SELECT * FROM Launch")
     fun getLaunches(): Flow<List<LaunchEntity>>
 

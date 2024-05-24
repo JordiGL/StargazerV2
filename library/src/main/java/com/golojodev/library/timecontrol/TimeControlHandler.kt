@@ -1,4 +1,4 @@
-package com.golojodev.timecontrol
+package com.golojodev.library.timecontrol
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.Date

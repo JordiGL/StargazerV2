@@ -39,7 +39,7 @@ import com.golojodev.stargazer.presentation.screens.content.CustomNavigationDraw
 import com.golojodev.stargazer.presentation.viewmodels.MainViewModel
 import com.golojodev.stargazer.presentation.viewmodels.ThemeViewModel
 import com.golojodev.stargazer.ui.theme.ApitemplateTheme
-import com.golojodev.timecontrol.TimeControlHandler
+import com.golojodev.library.timecontrol.TimeControlHandler
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn

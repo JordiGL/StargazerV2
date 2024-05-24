@@ -4,11 +4,13 @@ import com.golojodev.stargazer.domain.models.Agency
 import com.golojodev.stargazer.domain.models.Configuration
 import com.golojodev.stargazer.domain.models.Launch
 import com.golojodev.stargazer.domain.models.LaunchType
+import com.golojodev.stargazer.domain.models.LaunchesResponse
 import com.golojodev.stargazer.domain.models.Location
 import com.golojodev.stargazer.domain.models.Mission
 import com.golojodev.stargazer.domain.models.Pad
 import com.golojodev.stargazer.domain.models.Rocket
 import com.golojodev.stargazer.domain.models.Status
+import retrofit2.Response
 
 object LaunchFactory {
     fun createLaunches() = listOf(
@@ -61,4 +63,16 @@ object LaunchFactory {
             isFavorite = false
         )
     )
+
+    fun getSuccesResponse(): Response<LaunchesResponse> {
+        val fakeLaunches = createLaunches()
+        return Response.success(
+            LaunchesResponse(
+                count = fakeLaunches.size,
+                results = fakeLaunches,
+                previous = null,
+                next = ""
+            )
+        )
+    }
 }
